@@ -6,17 +6,19 @@ public class Lion {
 
     boolean hasMane;
 
-    public Lion(String sex) throws Exception {
+    private BigCats feline;
+
+    public Lion(String sex, BigCats feline) throws Exception {
         if ("Самец".equals(sex)) {
             hasMane = true;
+            this.feline = feline;
         } else if ("Самка".equals(sex)) {
             hasMane = false;
+            this.feline = feline;
         } else {
             throw new Exception("Используйте допустимые значения пола животного - самей или самка");
         }
     }
-
-    Feline feline = new Feline();
 
     public int getKittens() {
         return feline.getKittens();
