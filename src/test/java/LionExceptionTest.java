@@ -1,6 +1,7 @@
 import com.example.BigCats;
 import com.example.Feline;
 import com.example.Lion;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -15,9 +16,14 @@ public class LionExceptionTest {
 
     }
 
-    @Test(expected = Exception.class)
-    public void lionTestsConstructorInvalidInput() throws Exception {
-        Lion lion = new Lion("Fish", feline);
+    @Test
+    public void testInvalidSexThrowsException() {
+        try {
+            new Lion("Fish", feline);
+            Assert.fail("Ожидаемое исключение не было выброшено");
+        } catch (Exception e) {
+            Assert.assertEquals("Используйте допустимые значения пола животного - самей или самка", e.getMessage());
+        }
     }
 }
 
